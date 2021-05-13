@@ -1,36 +1,39 @@
-# Class-Calculator-Mu-Shu
 #include <iostream>
 using namespace std;
 class Parent {
-protected:
+private:
 	float b;
 	float a;
 public:
-	float GetAandB() {
+	float GetA() {
 		return a;
+	}
+	float GetB() {
 		return b;
 	}
-	void SetAandB(float Mu, float Shu) {
+	void SetA(float Mu) {
 		a = Mu;
+	}
+	void SetB(float Shu) {
 		b = Shu;
 	}
 	float Sum() {
-		float sum = a + b;
+		float sum = GetA() + GetB();
 		cout << "Addition result: " << sum << endl;
 		return sum;
 	}
 	float Sub() {
-		float sub = a - b;
+		float sub = GetA() - GetB();
 		cout << "Subtraction result: " << sub << endl;
 		return sub;
 	}
 	float Div() {
-		float div = a / b;;
+		float div = GetA() / GetB();;
 		cout << "Division Result: " << div << endl;
 		return div;
 	}
 	float Mul() {
-		float mul = a * b;
+		float mul = GetA() * GetB();
 		cout << "The result of the multiplication: " << mul << endl;
 		return mul;
 	}
@@ -39,12 +42,12 @@ class Calculator: public Parent
 {
 public:
 	float Div() {
-		float div = a / b;
+		float div = GetA() / GetB();
 		cout << "Result of whole division: " << div << endl;
 		return div;
 	}
 	float DivRem() {
-		float divrem = static_cast<int>(a) % static_cast<int>(b);
+		float divrem = static_cast<int>(GetA()) % static_cast<int>(GetB());
 		cout << "Result of division with remainder: " << divrem << endl;
 		return divrem;
 	}
@@ -53,8 +56,8 @@ public:
 	void main() {
 		Parent First;
 		Calculator Second;
-		Second.SetAandB(5, 2);
-		Second.GetAandB();
+		Second.SetA(5);
+		Second.SetB(2);
 		Second.Sum();
 		Second.Sub();
 		Second.Div();
